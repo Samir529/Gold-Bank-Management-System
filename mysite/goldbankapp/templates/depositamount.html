@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<body>
+<div>
+    {% if registered == "b" %}
+    <h1 style="color: blue">Deposit is successfully done to your account.</h1>
+    {% endif %}
+    {% if registered == "c" %}
+    <div style="white-space:nowrap"><h1 style="color: red">You are not registered. Register here first.
+        <a href="/register/"><button class="button" style="width: 25%;  padding: 4px;"><span>Register</span></button></a></h1>
+    </div>
+    {% endif %}
+    <h1>Deposit here</h1>
+    <h3 style="color: darkblue">Fill out the below form</h3>
+    <br>
+    <form action="{% url 'depositamount' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" name="username" placeholder="enter username"/>
+        </div>
+            <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" name="password" placeholder="enter password"/>
+        </div>
+            <div class="form-group">
+         <label for="email">Email address:</label>
+        <input type="email" name="email" placeholder="enter email"/>
+        </div>
+            <div class="form-group">
+        <label for="balance">Balance (BDT):</label>
+        <input type="number" name="balance" placeholder="enter balance"/>
+        </div>
+        <button class="button" style="float:middle;"><span>Submit</span></button>
+    </form>
+    <a href="/features/"><button class="button" style="color: darkred;"><span>Go Back</span></button></a>
+</div>
+</body>
+{% endblock %}
+
+
+
+

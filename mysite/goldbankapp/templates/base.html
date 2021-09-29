@@ -1,0 +1,115 @@
+{% load static %}
+<! Doctype html>
+<html>
+    <head>
+        <title>Gold Bank</title>
+        <link rel="icon" href="/static/assets/img/logo.jpg">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'css/inside4.css' %}">
+         <style>
+                body { background-color:gainsboro; }
+                .highlightme { background-color:black; }
+                body { background-image: url('/static/assets/img/tree1.jpg');
+                background-size: cover;}
+        </style>
+        <style>
+            img {
+            filter: drop-shadow(8px 8px 10px gray);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page-header">
+        <a href="/buy_product/"><img src="/static/assets/img/coins.png" alt="Logo" width="75" height="75"
+                                     style="float:right; margin: 0px 0px 0px 5px; filter: drop-shadow(0px 0px 0px gray);"/></a>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="dropdown" style="float:right">
+    <span style="font-size:23px;cursor:pointer;" onclick="openNav()"><button class="dropbtn">&#9776; Menu</button></span>
+    </div>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/">Home</a>
+    <a href="/moneytogold/">Convert Money to Gold</a>
+    <a href="/user_profile/">View Profile</a>
+  <button class="dropdown-btn">Deposit
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="/depositamount/">Deposit Money</a>
+    <a href="/show_balance_info/">View Deposit Info.</a>
+  </div>
+  <button class="dropdown-btn">Withdraw
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="/withdrawamount/">Withdraw Money</a>
+    <a href="/show_balance_info/">View Withdraw Info.</a>
+  </div>
+    <button class="dropdown-btn">Loan
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="/loan/">Take a Loan</a>
+    <a href="/return_loan/">Return Loan</a>
+    <a href="/show_loan_info/">View Loan Info.</a>
+  </div>
+    <a href="/transfer_gold/">Transfer Gold</a>
+    <a href="/update_profile/">Update Profile</a>
+    <a href="/profile_pic/">Update Profile Picture</a>
+    <a href="/show_gold_price/">Gold Price History</a>
+    <a href="/buy_product/">Buy Our Products</a>
+</div>
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+<script>
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
+             <div class="marquee" style="white-space:nowrap; width: 310px; float: right;">
+                 <h4><p style="margin: -1px 0px 0px 0px;">Good {{ temp1 }} {{ user.first_name }}, Hope you are well in this pandemic. Wear mask outside..</p></h4>
+                 <br>
+                 <h4><p style="margin: -10px 0px 0px 0px; animation: scroll-left 15s linear infinite;">Lastest Gold Price Update : Per One Gram Gold Price is {{update1.gold_price}} BDT on {{update1.date}}</p></h4>
+             </div>
+            <div class="flip-card" style="float:left;">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <a href="/"><img src="/static/assets/img/logo.jpg" alt="Logo" width="75" height="75" style="float:left"/></a>
+    </div>
+    <div class="flip-card-back">
+<!--      <a href="/"><h5 style="color: gold;">This is a gold banking system</h5></a>-->
+        <a href="/"><img src="/static/assets/img/logo2.png" alt="Logo" width="75" height="75" style="float:left"/></a>
+    </div>
+  </div>
+</div>
+                    <h1 style="margin: 0px 0px 30px 0px;"><a href="/"><span class="highlightme" style="color: gold;"><b>Gold Bank</b></span></a></h1>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div>
+                    {% block content%}
+                    {%endblock%}
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

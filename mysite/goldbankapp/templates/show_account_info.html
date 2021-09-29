@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block content %}
+<! DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    table, th, td {
+        border: 1px solid black;
+
+    }
+    th {
+        padding: 15px;
+        text-align: center;
+        background-color: greenyellow;
+    }
+    td {
+        padding: 15px;
+        text-align: center;
+        background-color: lightblue;
+    }
+    #tb {
+        width: 100%;
+        background-color: #B0E0E6;
+    }
+</style>
+</head>
+<body>
+    <h1>Account information</h1>
+    <br>
+    {% if acinfo %}
+    <table id="tb" style="font-size:120%;">
+        <tr>
+            <th>Profile Picture</th>
+            <th>Username</th>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Email address</th>
+            <th>Account Creation Date</th>
+            <th>Account Age</th>
+            <th>Date of Birth</th>
+            <th>Home District</th>
+            <th>Mobile No.</th>
+        </tr>
+        {% for a in acinfo %}
+        <tr>
+            <td style="padding: 15px 10px 15px 10px;"><img src="{{ a.profile_pic.url }}" alt="Profile pic" style="max-height:140px">
+               <a href="/profile_pic/"><button style="margin:10 0 0 0%">Upload Photo</button></a></td>
+            <td>{{a.user}}</td>
+            <td>{{user.first_name}}</td>
+            <td>{{user.last_name}}</td>
+            <td>{{user.email}}</td>
+            <td>{{a.currentdate}}</td>
+            {% if t.account_age == 1 %}
+                <td>{{t.account_age}} day</td>
+            {% else %}
+                <td>{{t.account_age}} days</td>
+            {% endif %}
+            <td>{{a.dateofbirth}}</td>
+            <td>{{a.location}}</td>
+            <td>{{a.mobileNo}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <div style="white-space:nowrap"><h2 style="color: darkblue">Update your profile here
+        <a href="/update_profile/"><button class="button" style="width: 20%;  padding: 5px;"><span>Update profile</span></button></a></h2>
+    </div>
+
+    {% else %}
+        <h1 style="color: red">No data found!</h1>
+        <h1 style="color: red">Please login first.</h1>
+        <div style="white-space:nowrap"><h2>Login here
+        <a href="/login/"><button class="button" style="width: 25%;  padding: 4px;"><span>Login</span></button></a></h2>
+        </div>
+    {% endif %}
+    <br><br>
+<a href="/features/"><button class="button" style="color: darkred;"><span>Go Back</span></button></a>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+{% block content %}
+<body>
+<div>
+    {% if temp == "z" %}
+    <h1 style="color: blue">Loan is successfully returned to the bank.</h1>
+    {% endif %}
+    {% if registered == "d" %}
+    <h1 style="color: red">There is no lone with loan ID {{id}}</h1>
+    {% endif %}
+<!--    {% if t.amount == 0 %}-->
+<!--    <h1 style="color: red">Amount of loan in your account is 0 TK.</h1>-->
+<!--    {% endif %}-->
+    {% if temp == "y"%}
+    <h1 style="color: red">Loan is already returned!</h1>
+    {% endif %}
+    {% if registered == "c" %}
+    <div style="white-space:nowrap"><h1 style="color: red">You are not registered. Register here first.
+        <a href="/register/"><button class="button" style="width: 25%;  padding: 4px;"><span>Register</span></button></a></h1>
+    </div>
+    {% endif %}
+    <h1>Return loan here</h1>
+<!--    <h2 style="color: purple"><b>Your amount of loan is {{t3.amount}} TK with a return value of {{t3.return_amount}} TK.</b></h2>-->
+    <h3 style="color: darkblue">Enter your username and password for confirmation</h3>
+    <form action="{% url 'loan_return' %}" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+        <label for="username">Username:</label>
+        <input type="text" name="username" placeholder="enter username"/>
+        </div>
+            <div class="form-group">
+        <label for="password">Password:</label>
+        <input type="password" name="password" placeholder="enter password"/>
+        </div>
+            <div class="form-group">
+        <label for="id">Loan ID:</label>
+        <input type="number" name="id" placeholder="enter loan id"/>
+        </div>
+        <button class="button" style="float:middle;"><span>Return</span></button>
+    </form>
+    <a href="/features/"><button class="button" style="color: darkred;"><span>Go Back</span></button></a>
+</div>
+</body>
+{% endblock %}
+
+
+
+

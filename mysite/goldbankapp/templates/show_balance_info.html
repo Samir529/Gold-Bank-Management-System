@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block content %}
+<! DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    table, th, td {
+        border: 1px solid black;
+
+    }
+    th {
+        padding: 15px;
+        text-align: center;
+        background-color: greenyellow;
+    }
+    td {
+        padding: 15px;
+        text-align: center;
+        background-color: lightblue;
+    }
+    #tb {
+        width: 100%;
+        background-color: #B0E0E6;
+    }
+</style>
+</head>
+<body>
+    <h1>Balance information</h1>
+    <br>
+    {% if bainfo == "x" %}
+    <h1 style="color: red">You did not deposit yet.</h1>
+    <div style="white-space:nowrap"><h2>Deposit here
+    <a href="/depositamount/"><button class="button" style="width: 25%;  padding: 4px;"><span>Deposit</span></button></a></h2>
+    </div>
+    {% elif bainfo != 0 %}
+    <table id="tb" style="font-size:130%">
+        <tr>
+            <th>Username</th>
+<!--            <th>Email address</th>-->
+            {% if t2.account_age >= 30 %}
+                <th>Initial Balance</th>
+            {% else %}
+                <th>Current Balance</th>
+            {% endif %}
+            {% if t2.account_age >= 30 %}
+                <th>Current Balance <strong style="color: #585858;">(After 3% interest)</strong></th>
+            {% else %}
+                <th>Balance <strong style="color: #585858;">(After 3% interest)</strong></th>
+            {% endif %}
+            <th>Current Balance <strong style="color: #585858;">(in current gold value)</strong></th>
+            <th>Current Balance in gold <strong style="color: #585858;">(gram)</strong></th>
+            <th>Last Deposit Date</th>
+            <th>Last Withdraw Date</th>
+            <th>Last Withdraw Amount</th>
+            <th>Account Age</th>
+        </tr>
+        {% for a in bainfo %}
+        <tr>
+            <td>{{a.username}}</td>
+<!--            <td>{{a.email}}</td>-->
+            {% if t2.account_age >= 30 %}
+                <td>{{a.initial_balance}} TK</td>
+            {% else %}
+                <td>{{a.balance}} TK</td>
+            {% endif %}
+            <td>{{a.monthly_interest_balance}} TK</td>
+            <td>{{a.interest_balance|floatformat:2}} TK</td>
+            <td>{{a.balance_in_gold|floatformat:2}} gram</td>
+            <td>{{a.currentdate}}</td>
+            <td>{{a.withdrawdate}}</td>
+            <td>{{a.last_withdraw_amount}} TK</td>
+            {% if t2.account_age == 1 %}
+                <td>{{t2.account_age}} day</td>
+            {% else %}
+                <td>{{t2.account_age}} days</td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+    <br><br>
+
+    {% elif bainfo == 0 %}
+        <h1 style="color: red">No data found!</h1>
+        <h1 style="color: red">Please login first.</h1>
+        <div style="white-space:nowrap"><h2>Login here
+        <a href="/login/"><button class="button" style="width: 25%;  padding: 4px;"><span>Login</span></button></a></h2>
+        </div>
+    {% endif %}
+    <br><br>
+<a href="/features/"><button class="button" style="color: darkred;"><span>Go Back</span></button></a>
+<h3 style="color: darkred">*** To get interest, age of your account must be minimum 1 month(30 days) ***</h3>
+<h3 style="color: darkred">*** Interest will be giving on current balance including current gold value. ***</h3>
+</body>
+</html>
+{% endblock %}

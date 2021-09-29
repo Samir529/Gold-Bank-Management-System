@@ -1,0 +1,58 @@
+{% extends 'base.html'%}
+  {% block content %}
+<!--form field colour-->
+<style>
+input[type=text] {
+  background-color: white;
+  color: black;
+}
+</style>
+<style>
+.heading{
+font-size:20px;
+}
+.heading:hover {
+color: dimgray ;
+}
+</style>
+<!--35%-->
+<body>
+    {% if temp == "b" %}
+    <h1 style="color: blue">Transaction is successful.</h1>
+    {% endif %}
+    {% if temp == "c" %}
+    <h1 style="color: red">Insufficient balance.</h1>
+    {% endif %}
+    {% if temp == "d" %}
+    <h1 style="color: red">Transaction is unsuccessfull.</h1>
+    {% endif %}
+    {% if temp == "e" %}
+    <h1 style="color: red">No such a account.</h1>
+    {% endif %}
+    <div class="alert alert-primary" role="alert">
+        <h1 style="color: darkred">Transfer Gold to Another Account</h1>
+    </div>
+    <form action="" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="exampleInputPassword1">Enter your own Username:</label>
+            <input type="text" class="form-control" name="own_username" >
+          </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Enter your Password:</label>
+            <input type="password" class="form-control"  name="own_pass" >
+          </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Enter the Username, you want to transfer gold:</label>
+            <input type="text" class="form-control" name="another_username" >
+          </div>
+        <div class="form-group">
+            <label for="exampleInputPassword1">Amount of Gold(in gram):</label>
+            <input type="text" class="form-control" name="gold_amount" >
+          </div>
+        <button class="button" style="float:middle;"><span>Transfer</span></button>
+      </form>
+    <a href="/features/"><button class="button" style="color: darkred;"><span>Go Back</span></button></a>
+      <!-- {{form}} -->
+</body>
+  {% endblock %}

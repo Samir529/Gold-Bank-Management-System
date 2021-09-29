@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% block content %}
+<! DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+<!--    <title>Title</title>-->
+    <style>
+    table, th, td {
+        border: 1px solid black;
+
+    }
+    th {
+        padding: 15px;
+        text-align: center;
+        background-color: greenyellow;
+    }
+    td {
+        padding: 15px;
+        text-align: center;
+        background-color: lightblue;
+    }
+    #tb {
+        width: 100%;
+        background-color: #B0E0E6;
+    }
+</style>
+</head>
+<body>
+<div style="white-space:nowrap">
+    <h1>Gold Price History
+    <a href="/features/ " style="padding-left:585px"><button class="button" style="color: darkred; padding: 6px;"><span>Go Back</span></button></a></h1>
+</div>
+    <h3 style="color: blue">For 24 Karat(one gram) gold.</h3>
+    <br>
+    {% if shgd %}
+    <table id="tb" style="font-size:130%">
+        <tr>
+            <th>Serial No.</th>
+            <th>Date</th>
+            <th>Gold Price in BDT</th>
+        </tr>
+        {% for t in shgd %}
+        <tr>
+            <td>{{t.serial}}</td>
+            <td>{{t.date}}</td>
+            <td>{{t.gold_price}} TK</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% else %}
+        <h1>No Data</h1>
+    {% endif %}
+</body>
+</html>
+{% endblock %}

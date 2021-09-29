@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+  {% block content %}
+<section>
+<!--        <h2>Welcome, <span>{{ user }}.</span></h2>-->
+<!--        <h4></h4>-->
+        <br>
+        <div class="text-center">
+            <h3>Account No.</h3>
+            <h1 class="btn-info">{{ curr_user.acct_no }}</h1>
+            <h4>Please note down the account no.</h4>
+        </div>
+        <br>
+        <div class="text-center">
+            <h3>Current Balance</h3>
+            <h1 class="btn-info">{{ curr_user.balance }} Tk</h1>
+        </div>
+        <br>
+    </section>
+  {% endblock %}

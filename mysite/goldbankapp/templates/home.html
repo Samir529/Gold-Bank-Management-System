@@ -1,0 +1,164 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+    <head>
+        <title>Gold Bank</title>
+        <link rel="icon" href="/static/assets/img/logo.jpg">
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <link href="{% static 'css/outside4.css' %}" rel="stylesheet" />
+    </head>
+    <body id="page-top">
+        <!-- Navigation bar-->
+        <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+            <div class="container">
+                <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <a href="#page-top"><img src="static/assets/img/logo.jpg" alt="Logo" width="60" height="60" /></a>
+    </div>
+    <div class="flip-card-back">
+      <a href="#page-top"><img src="static/assets/img/logo2.png" alt="Logo" width="60" height="60" /></a>
+    </div>
+  </div>
+</div>
+                <a href="#page-top"><h1 style="text-align: left; color: gold;"><span class="highlightme" style="color: gold;">Gold Bank</span></h1></a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="moneytogold/" style="color: gold;">Converter</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="" style="color: gold;">Live-Update</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team" style="color: gold;">Team</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'admin:index' %}" style="color: gold;">Admin-login</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="about/" style="color: gold;">About</a></li>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="dropdown" style="float:right">
+    <span style="font-size:23px;cursor:pointer;" onclick="openNav()"><button class="dropbtn">&#9776; Menu</button></span>
+    </div>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/">Home</a>
+    <a href="moneytogold/">Convert Money to Gold</a>
+    <a href="show_gold_price/">Gold Price History</a>
+    <a href="buy_product/">Buy Our Products</a>
+    <a href="features/">Services(Shortcut)</a>
+    <a href="adminPanel/">Admin Panel(Shortcut)</a>
+</div>
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+<script>
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <!-- Home-->
+<!--         style="margin-top: 0px;"-->
+        <header class="masthead">
+            <div class="container">
+                <br>
+                <br>
+<!--                        <form action="/action_page.php">-->
+                <div class="marquee" style="white-space:nowrap; width: 240px; float: middle;">
+                 <h3><z>Lastest Gold Price Update : Per One Gram Gold Price is <a style="color: orange">{{update.gold_price}} BDT</a> on {{update.date}}</z></h3>
+             </div>
+                <div style="color:gainsboro;">
+                    <h3>Like our Facebook page <a class="btn btn-dark btn-social mx-2" href="https://web.facebook.com/Gold-Bank-103736558274705">
+                        <i class="fab fa-facebook"></i></a></h3></div>
+                        <form>
+                        <input type="text" placeholder="Search.." name="search">
+                        <button style="color:orange;" type="submit"><i class="fa fa-search"></i></button>
+                        </form>
+                <br>
+                <div class="masthead-heading text-uppercase" style="color:gainsboro;">Welcome To Our Site!</div>
+                {% block content %}
+                <style>
+                body { background-color:gainsboro; }
+                .highlightme { background-color:rgba(0,0,0,.7); }
+                p { background-color:#FFFFFF; }
+                </style>
+                <h1 style="text-align: center; color:gold;"><span class="highlightme" style="color: gainsboro;"> Welcome to </span><span class="highlightme" style="color: gold;">Gold</span><span class="highlightme" style="color: gainsboro;"> Bank </span></h1>
+                {% if user.is_authenticated %}
+                <a href="{% url 'logout' %}" class= "button" style="  display: block; margin: auto; width: 30%; color:black;"><span>Logout</span></a>
+                {% else %}
+                <br>
+                <a href="{% url 'goldbankapp:user_login' %}" class= "button" style="  display: block; margin: auto; width: 30%; color:black;"><span>Login</span></a>
+                {% endif %}
+                <br>
+                <a href="{% url 'goldbankapp:register' %}" class = "button" style="  display: block; margin: auto; width: 30%; color:black;"><span>Register (Create account)</span></a>
+                <br>
+                <a href="admin_login/" class = "button" style="  display: block; margin: auto; width: 30%; color:black;"><span>Admin Panel</span></a>
+                {% endblock %}
+            </div>
+        </header>
+        <!-- Team -->
+        <style>
+        .img11:hover {
+        opacity: 0.7;
+        }
+        </style>
+        <section class="page-section bg-light" id="team" style="background-image: url('/static/assets/img/BDmap.jpg'); background-position: center center;
+                background-size: cover;">
+            <div class="container">
+                <div class="text-center">
+                    <h2 class="section-heading text-uppercase" style="color: gainsboro;">Our Team</h2>
+                    <h3 class="section-subheading text-muted" style="color: gainsboro;">Contributors</h3>
+                    <br>
+                    <br>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle img11" src="static/assets/img/team/1.jpg" alt="" />
+                            <h4><span class="highlightme" style="color: dodgerblue;">Saimun Rahman Sizan</span></h4>
+                            <p class="text-muted">Student</p>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/SizanSiz"><i class="fab fa-facebook-messenger"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/SizanSiz"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.whatsapp.com/?lang=en"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle img11" src="static/assets/img/team/2.jpg" alt="" />
+                            <h4><span class="highlightme" style="color: dodgerblue;">Samir Asif</span></h4>
+                            <p class="text-muted">Student</p>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/asif.samir.5329"><i class="fab fa-facebook-messenger"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/asif.samir.5329"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.whatsapp.com/?lang=en"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <div class="team-member">
+                            <img class="mx-auto rounded-circle img11" src="static/assets/img/team/3.jpg" alt="" />
+                            <h4><span class="highlightme" style="color: dodgerblue;">Md. Ashikur Rahman</span></h4>
+                            <p class="text-muted">Student</p>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/ashikur16jan"><i class="fab fa-facebook-messenger"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/ashikur16jan"><i class="fab fa-facebook-f"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.whatsapp.com/?lang=en"><i class="fab fa-whatsapp"></i></a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </body>
+</html>

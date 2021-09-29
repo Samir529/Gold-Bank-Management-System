@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+{% block content %}
+<! DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    table, th, td {
+        border: 1px solid black;
+
+    }
+    th {
+        padding: 15px;
+        text-align: center;
+        background-color: greenyellow;
+    }
+    td {
+        padding: 15px;
+        text-align: center;
+        background-color: lightblue;
+    }
+    #tb {
+        width: 100%;
+        background-color: #B0E0E6;
+    }
+</style>
+</head>
+<body>
+    <h1>Loan information</h1>
+    <br>
+    {% if lninfo == "x" %}
+    <h1 style="color: red">You did not take any loan yet.</h1>
+    <div style="white-space:nowrap"><h2>Take a loan from here
+    <a href="/loan/"><button class="button" style="width: 25%;  padding: 4px;"><span>Loan</span></button></a></h2>
+    </div>
+    {% elif lninfo != 0 %}
+    <table id="tb" style="font-size:130%">
+        <tr>
+            <th>Loan id</th>
+            <th>Username</th>
+            <th>Email address</th>
+            <th>Amount of loan</th>
+            <th>Loan taken on</th>
+            <th>Last date of return</th>
+            <th>Return amount <p style="color: #585858;">(including 5% return value)</p></th>
+            <th>Status</th>
+        </tr>
+        {% for a in lninfo %}
+        <tr>
+            <td>{{a.id}}</td>
+            <td>{{a.username}}</td>
+            <td>{{a.email}}</td>
+            <td>{{a.amount}} TK</td>
+            <td>{{a.currentdate}}</td>
+            <td>{{a.return_date}}</td>
+            <td>{{a.return_amount}} TK</td>
+            {% if a.status == 'Due' %}
+            <td style="color: red"><b>{{a.status}}</b></td>
+            {% elif a.status == 'Returned' %}
+                <td style="color: green"><b>{{a.status}}</b></td>
+            {% endif %}
+        </tr>
+        {% endfor %}
+    </table>
+    <br><br>
+
+    {% elif lninfo == 0 %}
+        <h1 style="color: red">No data found!</h1>
+        <h1 style="color: red">Please login first.</h1>
+        <div style="white-space:nowrap"><h2>Login here
+        <a href="/login/"><button class="button" style="width: 25%;  padding: 4px;"><span>Login</span></button></a></h2>
+        </div>
+    {% endif %}
+    <br><br>
+<a href="/features/"><button class="button" style="color: darkred;"><span>Go Back</span></button></a>
+</body>
+</html>
+{% endblock %}

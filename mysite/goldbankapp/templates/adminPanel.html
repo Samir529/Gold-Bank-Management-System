@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<html>
+    <head>
+        <head>
+        <title>Gold Bank - Admin Panel</title>
+        <link rel="icon" href="/static/assets/img/logo.jpg">
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <link href="{% static 'css/outside4.css' %}" rel="stylesheet" />
+    </head>
+    </head>
+<body id="page-top">
+        <!-- Navigation bar-->
+        <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+            <div class="container">
+                <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <a href="/"><img src="/static/assets/img/logo.jpg" alt="Logo" width="60" height="60" /></a>
+    </div>
+    <div class="flip-card-back">
+      <a href="/"><img src="/static/assets/img/logo2.png" alt="Logo" width="60" height="60" /></a>
+    </div>
+  </div>
+</div>
+                <style>
+                body { background-color:gainsboro; }
+                .highlightme { background-color:rgba(0,0,0,.7); }
+                p { background-color:#FFFFFF; }
+                </style>
+                <a href="/"><h1 style="text-align: left; color: gold;"><span class="highlightme" style="color: gold;">Gold Bank</span></h1></a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/moneytogold/" style="color: gold;">Converter</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="" style="color: gold;">Live-Update</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'admin:index' %}" style="color: gold;">Admin-login</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/about/" style="color: gold;">About</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/" style="color: gold;">Home</a></li>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="dropdown" style="float:right">
+    <span style="font-size:23px;cursor:pointer;" onclick="openNav()"><button class="dropbtn">&#9776; Menu</button></span>
+    </div>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/">Home</a>
+    <a href="/gold_price/" >Update Gold Price</a>
+    <a href="/bankTotalMoney/" >Enter Bank Money</a>
+    <a href="/show_gold_price/" >Gold Price History</a>
+    <a href="/moneytogold/" >Convert Money to Gold</a>
+</div>
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+<script>
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+        <style>
+            .img {
+            filter: drop-shadow(8px 8px 10px black);
+            }
+            .img2 {
+            filter: drop-shadow(8px 8px 10px black);
+            filter: blur(5px);
+            }
+        </style>
+        <style>
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+        </style>
+        <section class="page-section bg-light" id="feature" style="background-image: url('/static/assets/img/adminpanel.jpg'); background-position: center center;
+                background-size: cover;">
+            <div class="container">
+                <div class="text-center">
+                    <br>
+                    <h1 style="color:gainsboro;">Admin Panel</h1>
+                    <h2 style="float:left; color:whitesmoke;">Welcome, admin</h2>
+                    <br><br><br><br>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="feature-item">
+                            <div class="flip-card2">
+  <div class="flip-card2-inner">
+    <div class="flip-card2-front">
+      <a href="/gold_price/"><img class="img-fluid img" src="/static/assets/img/features/Feature7.jpg" alt="image" /></a>
+        <div class="centered"><h1><a href="/gold_price/" style="color: white;">Update Gold Price</a></h1></div>
+    </div>
+    <div class="flip-card2-back">
+  <a href="/gold_price/"><img class="img-fluid img2" src="/static/assets/img/features/Feature7.jpg" alt="image" /></a>
+    <div class="centered"><h1><a href="/gold_price/" style="color: white;">Update Gold Price</a></h1></div>
+    </div>
+  </div>
+</div>
+                         <br>
+                            <div class="feature-caption">
+                                <div class="feature-caption-heading"><a href="/gold_price/">Update Gold Price</a></div>
+                                <div>Update Gold Price</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="feature-item">
+                            <div class="flip-card2">
+  <div class="flip-card2-inner">
+    <div class="flip-card2-front">
+      <a href="/bankTotalMoney/"><img class="img-fluid img" src="/static/assets/img/features/Feature8.jpg" alt="image" /></a>
+        <div class="centered"><h1><a href="/bankTotalMoney/" style="color: white;">Bank Money</a></h1></div>
+    </div>
+    <div class="flip-card2-back">
+      <a href="/bankTotalMoney/"><img class="img-fluid img2" src="/static/assets/img/features/Feature8.jpg" alt="image" /></a>
+        <div class="centered"><h1><a href="/bankTotalMoney/" style="color: white;">Bank Money</a></h1></div>
+    </div>
+  </div>
+</div>
+                         <br>
+                            <div class="feature-caption">
+                                <div class="feature-caption-heading"><a href="/bankTotalMoney/">Enter Bank Money</a></div>
+                                <div>(Do not change)</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="feature-item">
+                            <div class="flip-card2">
+  <div class="flip-card2-inner">
+    <div class="flip-card2-front">
+      <a href="/show_gold_price/"><img class="img-fluid img" src="/static/assets/img/features/Feature9.jpg" alt="image" /></a>
+        <div class="centered"><h1><a href="/show_gold_price/" style="color: white;">Gold Price History</a></h1></div>
+    </div>
+    <div class="flip-card2-back">
+      <a href="/show_gold_price/"><img class="img-fluid img2" src="/static/assets/img/features/Feature9.jpg" alt="image" /></a>
+        <div class="centered"><h1><a href="/show_gold_price/" style="color: white;">Gold Price History</a></h1></div>
+    </div>
+  </div>
+</div>
+                         <br>
+                            <div class="feature-caption">
+                                <div class="feature-caption-heading"><a href="/show_gold_price/">View Gold Price History</a></div>
+                                <div>View Gold Price History</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+</body>
+</html>

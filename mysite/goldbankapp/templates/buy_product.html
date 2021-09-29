@@ -1,0 +1,210 @@
+{% load static %}
+<! Doctype html>
+<html>
+    <head>
+        <title>Gold Bank - Products</title>
+        <link rel="icon" href="/static/assets/img/logo.jpg">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="{% static 'css/inside4.css' %}">
+        <link rel="stylesheet" href="{% static 'css/outside4.css' %}">
+         <style>
+                body { background-color:gainsboro; }
+                .highlightme { background-color:black; }
+                body { background-image: url('/static/assets/img/tree1.jpg');
+                background-size: cover;}
+        </style>
+        <style>
+            img {
+            filter: drop-shadow(8px 8px 10px gray);
+            }
+        </style>
+    </head>
+    <body>
+        <div class="page-header">
+        <a href="/buy_product/"><img src="/static/assets/img/coins.png" alt="Logo" width="75" height="75"
+                                     style="float:right; margin: 0px 0px 0px 5px; filter: drop-shadow(0px 0px 0px gray);"/></a>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="dropdown" style="float:right">
+    <span style="font-size:23px;cursor:pointer;" onclick="openNav()"><button class="dropbtn" style="padding: 4px 0px;">&#9776; Menu</button></span>
+    </div>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/">Home</a>
+    <a href="/moneytogold/">Convert Money to Gold</a>
+    <a href="/user_profile/">View Profile</a>
+  <button class="dropdown-btn">Deposit
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="/depositamount/">Deposit Money</a>
+    <a href="/show_balance_info/">View Deposit Info.</a>
+  </div>
+  <button class="dropdown-btn">Withdraw
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="/withdrawamount/">Withdraw Money</a>
+    <a href="/show_balance_info/">View Withdraw Info.</a>
+  </div>
+    <button class="dropdown-btn">Loan
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="/loan/">Take a Loan</a>
+    <a href="/return_loan/">Return Loan</a>
+    <a href="/show_loan_info/">View Loan Info.</a>
+  </div>
+    <a href="/transfer_gold/">Transfer Gold</a>
+    <a href="/update_profile/">Update Profile</a>
+    <a href="/profile_pic/">Update Profile Picture</a>
+    <a href="/show_gold_price/">Gold Price History</a>
+    <a href="/buy_product/">Buy Our Products</a>
+</div>
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+<script>
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
+             <div class="marquee" style="white-space:nowrap; width: 310px; float: right;">
+                 <h4><p>Hi user, Hope you are well in this pandemic. Wear mask outside..</p></h4>
+             </div>
+            <div class="flip-card" style="float:left; margin: 0px 15px 0px 0px;">
+  <div class="flip-card-inner" style="width: 75; height: 75;">
+    <div class="flip-card-front">
+      <a href="/"><img src="/static/assets/img/logo.jpg" alt="Logo" width="75" height="75" style="float:left"/></a>
+    </div>
+    <div class="flip-card-back" style="width: 0; height: 0;">
+<!--      <a href="/"><h5 style="color: gold;">This is a gold banking system</h5></a>-->
+        <a href="/"><img src="/static/assets/img/logo.png" width="0" height="0" style="float:left"/></a>
+    </div>
+  </div>
+</div>
+                    <h1 style="margin: 0px 0px 25px 0px;"><a href="/"><span class="highlightme" style="color: gold;"><b>Gold Bank</b></span></a></h1>
+        </div>
+        <div class="content container">
+            <div class="row">
+                <div>
+                    <section class="page-section" id="feature">
+            <div class="container">
+                <div class="text-center">
+                    <h1 style="float:left; font-size: 35px;">Our Products</h1>
+                    <br><br><br><br>
+                </div>
+                <div class="text-center">
+                    <h1 style="float:left; font-size: 35px; color: orange">Buy Actual Gold Coins Now!!</h1>
+                    <br><br><br><br>
+                </div>
+                <br>
+    <style>
+    .fishes
+    {
+      position: relative;
+      top: 0;
+      left: 0;
+    }
+    .fish
+    {
+      position: absolute;
+      top: 50px;
+      left: 90px;
+    }
+    </style>
+
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="feature-item" style="width: 357;">
+                            <div class="flip-card2">
+<img style="opacity: 0.8;" class="img-fluid img fishes" src="/static/assets/img/features/black.jpg" alt="image"/>
+         <div class="flip-card2-inner fish" style="width: 180; height: 0;">
+    <div class="flip-card2-front">
+      <img class="img-fluid img" src="/static/assets/img/features/gold.png" alt="image" />
+    </div>
+    <div class="flip-card2-back">
+      <img class="img-fluid img2" src="/static/assets/img/features/gold.png" alt="image" />
+    </div>
+  </div>
+</div>
+                         <br>
+                            <div class="feature-caption">
+                                <div><h1>Gold Coin</h1></div>
+                                <div style="white-space:nowrap"><h2>5 gram(one coin)</h2></div>
+                                <div style="white-space:nowrap"><h1>{{temp}} BDT</h1></div>
+                                <div class="feature-caption-heading"><a href="/buy_gold/"><h1>Buy Coins</h1></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="feature-item" style="width: 357;">
+                            <div class="flip-card2">
+<img style="opacity: 0.8;" class="img-fluid img fishes" src="/static/assets/img/features/black.jpg" alt="image"/>
+         <div class="flip-card2-inner fish" style="width: 180; height: 0;">
+    <div class="flip-card2-front">
+      <img class="img-fluid img" src="/static/assets/img/features/silver.png" alt="image" />
+    </div>
+    <div class="flip-card2-back">
+      <img class="img-fluid img2" src="/static/assets/img/features/silver.png" alt="image" />
+    </div>
+  </div>
+</div>
+                         <br>
+                            <div class="feature-caption">
+                                <div><h1>Silver Coin</h1></div>
+                                <div style="white-space:nowrap"><h2>5 gram(one coin)</h2></div>
+                                <div style="white-space:nowrap"><h1>{{temp2}} BDT</h1></div>
+                                <div class="feature-caption-heading"><a href="/buy_silver/"><h1>Buy Coins</h1></a></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="feature-item" style="width: 357;">
+                            <div class="flip-card2">
+<img style="opacity: 0.8;" class="img-fluid img fishes" src="/static/assets/img/features/black.jpg" alt="image"/>
+         <div class="flip-card2-inner fish" style="width: 180; height: 0;">
+    <div class="flip-card2-front">
+      <img class="img-fluid img" src="/static/assets/img/features/bronze.png" alt="image" />
+    </div>
+    <div class="flip-card2-back">
+      <img class="img-fluid img2" src="/static/assets/img/features/bronze.png" alt="image" />
+    </div>
+  </div>
+</div>
+                         <br>
+                            <div class="feature-caption">
+                                <div><h1>Bronze Coin</h1></div>
+                                <div style="white-space:nowrap"><h2>5 gram(one coin)</h2></div>
+                                <div style="white-space:nowrap"><h1>{{temp3}} BDT</h1></div>
+                                <div class="feature-caption-heading"><a href="/buy_bronze/"><h1>Buy Coins</h1></a></div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </section>
+                </div>
+            </div>
+            <br>
+            <a href="/features/"><button class="button" style="color: darkslategray; font-size: 18px; padding: 4px"><span>Go Back</span></button></a>
+        </div>
+    </body>
+</html>

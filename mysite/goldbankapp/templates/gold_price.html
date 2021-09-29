@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% extends "base.html"%}
+{% block content %}
+<div>
+    <h1>Update Gold Price</h1>
+    <h4 style="color: blue">For 24 Karat(one gram) gold,</h4>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ updatePrice_form.as_p }}
+        {% csrf_token %}
+        <button class="button" style="float:middle;"><span>Submit</span></button>
+    </form>
+    <a href="/adminPanel/"><button class="button" style="color: darkred;"><span>Go Back</span></button></a>
+    {% for message in messages %}
+         <h2 style="color: blue">{{ message}}</h2>
+      {%endfor%}
+</div>
+{% endblock %}
+
+
+
+
+
+
+
+
+

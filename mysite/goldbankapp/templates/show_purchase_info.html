@@ -1,0 +1,69 @@
+{% extends 'base.html' %}
+{% block content %}
+<! DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    table, th, td {
+        border: 1px solid black;
+
+    }
+    th {
+        padding: 15px;
+        text-align: center;
+        background-color: greenyellow;
+    }
+    td {
+        padding: 15px;
+        text-align: center;
+        background-color: lightblue;
+    }
+    #tb {
+        width: 100%;
+        background-color: #B0E0E6;
+    }
+</style>
+</head>
+<body>
+    <h1>Purchase information</h1>
+    <br>
+    {% if acinfo == "x" %}
+    <h1 style="color: red">You did not purchase any product yet.</h1>
+    <div style="white-space:nowrap"><h2>Buy our products here
+    <a href="/buy_product/"><button class="button" style="width: 25%;  padding: 4px;"><span>Buy Product</span></button></a></h2>
+    </div>
+    {% elif acinfo != 0 %}
+    <table id="tb" style="font-size:130%;">
+        <tr>
+            <th>Username</th>
+            <th>Coin Picture</th>
+            <th>Coin Type</th>
+            <th>Quantity</th>
+            <th>Date of Purchase</th>
+            <th>Cash Paid</th>
+        </tr>
+        {% for a in acinfo %}
+        <tr>
+            <td>{{a.username}}</td>
+            <td style="padding: 15px 0px 15px 0px;"><img src="{{ a.coin_picture.url }}" alt="Coin pic" style="max-height:70px">
+            <td>{{a.coin_type}}</td>
+            <td>{{a.quantity}}</td>
+            <td>{{a.currentdate}}</td>
+            <td>{{a.price}} TK</td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    {% elif acinfo == 0 %}
+        <h1 style="color: red">No data found!</h1>
+        <h1 style="color: red">Please login first.</h1>
+        <div style="white-space:nowrap"><h2>Login here
+        <a href="/login/"><button class="button" style="width: 25%;  padding: 4px;"><span>Login</span></button></a></h2>
+        </div>
+    {% endif %}
+    <br><br><br><br>
+<a href="/features/"><button class="button" style="color: darkred;"><span>Go Back</span></button></a>
+</body>
+</html>
+{% endblock %}

@@ -1,0 +1,330 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<html>
+    <head>
+        <head>
+        <title>Gold Bank - Services</title>
+        <link rel="icon" href="/static/assets/img/logo.jpg">
+        <script src="https://use.fontawesome.com/releases/v5.15.1/js/all.js" crossorigin="anonymous"></script>
+        <link href="{% static 'css/outside4.css' %}" rel="stylesheet" />
+    </head>
+    </head>
+<body id="page-top">
+        <!-- Navigation bar-->
+        <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+            <div class="container">
+                <div class="flip-card">
+  <div class="flip-card-inner">
+    <div class="flip-card-front">
+      <a href="/"><img src="/static/assets/img/logo.jpg" alt="Logo" width="60" height="60" /></a>
+    </div>
+    <div class="flip-card-back">
+      <a href="/"><img src="/static/assets/img/logo2.png" alt="Logo" width="60" height="60" /></a>
+    </div>
+  </div>
+</div>
+                <style>
+                body { background-color:gainsboro; }
+                .highlightme { background-color:rgba(0,0,0,.7); }
+                p { background-color:#FFFFFF; }
+                </style>
+                <a href="/"><h1 style="text-align: left; color: gold;"><span class="highlightme" style="color: gold;">Gold Bank</span></h1></a>
+                <div class="collapse navbar-collapse">
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/moneytogold/" style="color: gold;">Converter</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="" style="color: gold;">Live-Update</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'admin:index' %}" style="color: gold;">Admin-login</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/about/" style="color: gold;">About</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="/" style="color: gold;">Home</a></li>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <div class="dropdown" style="float:right">
+    <span style="font-size:23px;cursor:pointer;" onclick="openNav()"><button class="dropbtn">&#9776; Menu</button></span>
+    </div>
+<div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <a href="/">Home</a>
+    <a href="/moneytogold/">Convert Money to Gold</a>
+    <a href="/user_profile/">View Profile</a>
+  <button class="dropdown-btn">Deposit
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="/depositamount/">Deposit Money</a>
+    <a href="/show_balance_info/">View Deposit Info.</a>
+  </div>
+  <button class="dropdown-btn">Withdraw
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="/withdrawamount/">Withdraw Money</a>
+    <a href="/show_balance_info/">View Withdraw Info.</a>
+  </div>
+    <button class="dropdown-btn">Loan
+    <i class="fa fa-caret-down"></i>
+  </button>
+  <div class="dropdown-container">
+    <a href="/loan/">Take a Loan</a>
+    <a href="/return_loan/">Return Loan</a>
+    <a href="/show_loan_info/">View Loan Info.</a>
+  </div>
+    <a href="/transfer_gold/">Transfer Gold</a>
+    <a href="/update_profile/">Update Profile</a>
+    <a href="/profile_pic/">Update Profile Picture</a>
+    <a href="/show_gold_price/">Gold Price History</a>
+    <a href="/buy_product/">Buy Our Products</a>
+</div>
+<script>
+function openNav() {
+  document.getElementById("mySidenav").style.width = "250px";
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
+<script>
+var dropdown = document.getElementsByClassName("dropdown-btn");
+var i;
+
+for (i = 0; i < dropdown.length; i++) {
+  dropdown[i].addEventListener("click", function() {
+  this.classList.toggle("active");
+  var dropdownContent = this.nextElementSibling;
+  if (dropdownContent.style.display === "block") {
+  dropdownContent.style.display = "none";
+  } else {
+  dropdownContent.style.display = "block";
+  }
+  });
+}
+</script>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+<!-- Features -->
+        <style>
+            .img {
+            filter: drop-shadow(8px 8px 10px black);
+            }
+            .img2 {
+            filter: drop-shadow(8px 8px 10px black);
+            filter: blur(5px);
+            }
+        </style>
+        <style>
+.centered {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+        </style>
+        <section class="page-section bg-light" id="feature" style="background-image: url('/static/assets/img/leaf.jpg'); background-position: center center;
+                background-size: cover;">
+            <div class="container">
+                <div class="text-center">
+                    <br>
+                    <h1 style="color:whitesmoke;">Welcome, {{ user.first_name }}</h1>
+                    <h2 class="text-uppercase" style="float:left;">Services</h2>
+                    <br><br><br><br>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="feature-item">
+                            <div class="flip-card2">
+  <div class="flip-card2-inner">
+    <div class="flip-card2-front">
+      <a href="/depositamount/"><img class="img-fluid img" src="/static/assets/img/features/Feature1.jpg" alt="image" /></a>
+        <div class="centered"><h1><a href="/depositamount/" style="color: white;">Deposit Money</a></h1></div>
+    </div>
+    <div class="flip-card2-back">
+  <a href="/depositamount/"><img class="img-fluid img2" src="/static/assets/img/features/Feature1.jpg" alt="image" /></a>
+    <div class="centered"><h1><a href="/depositamount/" style="color: white;">Deposit Money</a></h1></div>
+    </div>
+  </div>
+</div>
+                         <br>
+                            <div class="feature-caption">
+                                <div class="feature-caption-heading"><a href="/depositamount/">Deposit Money</a></div>
+                                <div>Deposit Money</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="feature-item">
+                            <div class="flip-card2">
+  <div class="flip-card2-inner">
+    <div class="flip-card2-front">
+      <a href="/withdrawamount/"><img class="img-fluid img" src="/static/assets/img/features/Feature2.jpg" alt="image" /></a>
+        <div class="centered"><h1><a href="/withdrawamount/" style="color: white;">Withdraw Money</a></h1></div>
+    </div>
+    <div class="flip-card2-back">
+      <a href="/withdrawamount/"><img class="img-fluid img2" src="/static/assets/img/features/Feature2.jpg" alt="image" /></a>
+        <div class="centered"><h1><a href="/withdrawamount/" style="color: white;">Withdraw Money</a></h1></div>
+    </div>
+  </div>
+</div>
+                         <br>
+                            <div class="feature-caption">
+                                <div class="feature-caption-heading"><a href="/withdrawamount/">Withdraw Money</a></div>
+                                <div>Withdraw Money</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="feature-item">
+                            <div class="flip-card2">
+  <div class="flip-card2-inner">
+    <div class="flip-card2-front">
+      <a href="/loan/"><img class="img-fluid img" src="/static/assets/img/features/Feature3.jpg" alt="image" /></a>
+        <div class="centered"><h1><a href="/loan/" style="color: white;">Take a Loan</a></h1></div>
+    </div>
+    <div class="flip-card2-back">
+      <a href="/loan/"><img class="img-fluid img2" src="/static/assets/img/features/Feature3.jpg" alt="image" /></a>
+        <div class="centered"><h1><a href="/loan/" style="color: white;">Take a Loan</a></h1></div>
+    </div>
+  </div>
+</div>
+                         <br>
+                            <div class="feature-caption">
+                                <div class="feature-caption-heading"><a href="/loan/">Take a Loan</a></div>
+                                <div>Take a loan from bank</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-lg-0">
+                        <div class="feature-item">
+                            <div class="flip-card2">
+  <div class="flip-card2-inner">
+    <div class="flip-card2-front">
+      <a href="/user_profile/"><img class="img-fluid img" src="/static/assets/img/features/Feature4.jpg" alt="image" /></a>'
+        <div class="centered"><h1><a href="/user_profile/" style="color: white;">View Profile</a></h1></div>
+    </div>
+    <div class="flip-card2-back">
+      <a href="/user_profile/"><img class="img-fluid img2" src="/static/assets/img/features/Feature4.jpg" alt="image" /></a>
+        <div class="centered"><h1><a href="/user_profile/" style="color: white;">View Profile</a></h1></div>
+    </div>
+  </div>
+</div>
+                         <br>
+                            <div class="feature-caption">
+                                <div class="feature-caption-heading"><a href="/user_profile/">View My Profile</a></div>
+                                <div>View account information</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4 mb-sm-0">
+                        <div class="feature-item">
+                            <div class="flip-card2">
+  <div class="flip-card2-inner">
+    <div class="flip-card2-front">
+      <a href="/buy_product/"><img class="img-fluid img" src="/static/assets/img/features/Feature5.jpg" alt="image" /></a>
+        <div class="centered"><h1><a href="/buy_product/" style="color: white;">Our Products</a></h1></div>
+    </div>
+    <div class="flip-card2-back">
+      <a href="/buy_product/"><img class="img-fluid img2" src="/static/assets/img/features/Feature5.jpg" alt="image" /></a>
+        <div class="centered"><h1><a href="/buy_product/" style="color: white;">Our Products</a></h1></div>
+    </div>
+  </div>
+</div>
+                         <br>
+                            <div class="feature-caption">
+                                <div class="feature-caption-heading"><a href="/buy_product/">Buy Our Products</a></div>
+                                <div>Buy Our Products Now</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6">
+                        <div class="feature-item">
+                            <div class="flip-card2">
+  <div class="flip-card2-inner">
+    <div class="flip-card2-front">
+      <a href="/update_profile/"><img class="img-fluid img" src="/static/assets/img/features/Feature6.jpg" alt="image" /></a>
+        <div class="centered"><h1><a href="/update_profile/" style="color: white;">Update Profile</a></h1></div>
+    </div>
+    <div class="flip-card2-back">
+      <a href="/update_profile/"><img class="img-fluid img2" src="/static/assets/img/features/Feature6.jpg" alt="image" /></a>
+        <div class="centered"><h1><a href="/update_profile/" style="color: white;">Update Profile</a></h1></div>
+    </div>
+  </div>
+</div>
+                         <br>
+                            <div class="feature-caption">
+                                <div class="feature-caption-heading"><a href="/update_profile/">Update My Profile</a></div>
+                                <div>Update account information</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="feature-item">
+                            <div class="flip-card2">
+  <div class="flip-card2-inner">
+    <div class="flip-card2-front">
+      <a href="/show_gold_price/"><img class="img-fluid img" src="/static/assets/img/features/Feature7.jpg" alt="image" /></a>
+        <div class="centered"><h1><a href="/show_gold_price/" style="color: white;">Gold Price History</a></h1></div>
+    </div>
+    <div class="flip-card2-back">
+  <a href="/show_gold_price/"><img class="img-fluid img2" src="/static/assets/img/features/Feature7.jpg" alt="image" /></a>
+    <div class="centered"><h1><a href="/show_gold_price/" style="color: white;">Gold Price History</a></h1></div>
+    </div>
+  </div>
+</div>
+                         <br>
+                            <div class="feature-caption">
+                                <div class="feature-caption-heading"><a href="/show_gold_price/">Gold Price History</a></div>
+                                <div>View Gold Price History</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="feature-item">
+                            <div class="flip-card2">
+  <div class="flip-card2-inner">
+    <div class="flip-card2-front">
+      <a href="/transfer_gold/"><img class="img-fluid img" src="/static/assets/img/features/Feature8.jpg" alt="image" /></a>
+        <div class="centered"><h1><a href="/transfer_gold/" style="color: white;">Transfer Gold</a></h1></div>
+    </div>
+    <div class="flip-card2-back">
+      <a href="/transfer_gold/"><img class="img-fluid img2" src="/static/assets/img/features/Feature8.jpg" alt="image" /></a>
+        <div class="centered"><h1><a href="/transfer_gold/" style="color: white;">Transfer Gold</a></h1></div>
+    </div>
+  </div>
+</div>
+                         <br>
+                            <div class="feature-caption">
+                                <div class="feature-caption-heading"><a href="/transfer_gold/">Transfer Gold</a></div>
+                                <div>Transfer gold to another account</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 mb-4">
+                        <div class="feature-item">
+                            <div class="flip-card2">
+  <div class="flip-card2-inner">
+    <div class="flip-card2-front">
+      <a href="/return_loan/"><img class="img-fluid img" src="/static/assets/img/features/Feature9.jpg" alt="image" /></a>
+        <div class="centered"><h1><a href="/return_loan/" style="color: white;">Return Loan</a></h1></div>
+    </div>
+    <div class="flip-card2-back">
+      <a href="/return_loan/"><img class="img-fluid img2" src="/static/assets/img/features/Feature9.jpg" alt="image" /></a>
+        <div class="centered"><h1><a href="/return_loan/" style="color: white;">Return Loan</a></h1></div>
+    </div>
+  </div>
+</div>
+                         <br>
+                            <div class="feature-caption">
+                                <div class="feature-caption-heading"><a href="/return_loan/">Return Loan</a></div>
+                                <div>Return loan to the bank</div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </div>
+        </section>
+</body>
+</html>

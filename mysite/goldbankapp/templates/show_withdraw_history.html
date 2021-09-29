@@ -1,0 +1,66 @@
+{% extends 'base.html' %}
+{% block content %}
+<! DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+    table, th, td {
+        border: 1px solid black;
+
+    }
+    th {
+        padding: 15px;
+        text-align: center;
+        background-color: greenyellow;
+    }
+    td {
+        padding: 15px;
+        text-align: center;
+        background-color: lightblue;
+    }
+    #tb {
+        width: 100%;
+        background-color: #B0E0E6;
+    }
+</style>
+</head>
+<body>
+    <h1>My Withdraw Records</h1>
+    <br>
+    {% if temp == "x" %}
+    <h1 style="color: red">You did not withdraw yet.</h1>
+    <div style="white-space:nowrap"><h2>Withdraw here
+    <a href="/withdrawamount/"><button class="button" style="width: 25%;  padding: 4px;"><span>Withdraw</span></button></a></h2>
+    </div>
+    {% elif temp != 0 %}
+    <table id="tb" style="font-size:130%">
+        <tr>
+            <th>Username</th>
+            <th>Email address</th>
+            <th>Amount</th>
+            <th>Withdraw Date</th>
+        </tr>
+        {% for a in temp %}
+        <tr>
+            <td>{{a.username}}</td>
+            <td>{{a.email}}</td>
+            <td>{{a.amount}} TK</td>
+            <td>{{a.currentdate}}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br><br>
+
+    {% elif temp == 0 %}
+        <h1 style="color: red">No data found!</h1>
+        <h1 style="color: red">Please login first.</h1>
+        <div style="white-space:nowrap"><h2>Login here
+        <a href="/login/"><button class="button" style="width: 25%;  padding: 4px;"><span>Login</span></button></a></h2>
+        </div>
+    {% endif %}
+    <br><br>
+<a href="/features/"><button class="button" style="color: darkred;"><span>Go Back</span></button></a>
+</body>
+</html>
+{% endblock %}

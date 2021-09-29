@@ -1,0 +1,236 @@
+.page-header {
+    background-color: gold;
+    margin-top: 0;
+    padding: 20px 20px 10px 40px;
+}
+.errorlist{
+    color: red;
+}
+.page-header h1 a, .page-header h1 a:active {
+    color: #ffffff;
+    font-size: 34pt;
+    text-decoration: none;
+}
+.content {
+    margin-left: 100px;
+	color: black;
+}
+/* button */
+.button {
+  display: inline-block;
+  border-radius: 2px;
+  background-color: gold;
+  border: 2px solid black;
+  color: black;
+  text-align: center;
+  font-size: 20px;
+  padding: 2px 16px;
+  width: 280px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+.button span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+.button span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+.button:hover span {
+  padding-right: 25px;
+}
+.button:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+/* flip image */
+.flip-card {
+  background-color: transparent;
+  width: 75px;
+  height: 75px;
+  perspective: 1000px;
+}
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.8s;
+  transform-style: preserve-3d;
+}
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden; 
+  backface-visibility: hidden;
+}
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+.flip-card-back {
+  background-color: gold;
+  color: white;
+  transform: rotateY(180deg);
+}
+/* Menu */
+.dropbtn {
+  background-color: darkorange;
+  color: white;
+  border-radius: 0px;
+  padding: 4px 6px;
+  font-size: 18px;
+  border: 2px solid black;
+  text-align: center;
+  width: 160px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 0px;
+}
+.dropdown {
+  position: relative;
+  display: block;
+}
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: gainsboro;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+.dropdown-content a:hover {background-color: darkorange;}
+.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropbtn {background-color: black;}
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.3s;
+  padding-top: 60px;
+}
+.sidenav a {
+  padding: 8px 13px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+.dropdown-btn {
+  padding: 8px 13px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  border: none;
+  background: none;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+}
+.sidenav a:hover, .dropdown-btn:hover {
+  color: darkorange;
+}
+.active {
+  background-color: green;
+  color: white;
+}
+.active:hover {
+  background-color: darkgreen;
+  color: white;
+}
+.dropdown-container {
+  display: none;
+  background-color: #262626;
+  padding-left: 8px;
+}
+.fa-caret-down {
+  float: right;
+  padding-right: 8px;
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+.marquee {
+height: 50px;
+overflow: hidden;
+position: relative;
+background: transparent;
+color: black;
+margin: 10px;
+#border: 1px solid #4a4a4a;
+}
+.marquee p {
+position: absolute;
+height: 100%;
+margin: 0;
+-moz-transform: translateX(100%);
+-webkit-transform: translateX(100%);
+transform: translateX(100%);
+-moz-animation: scroll-left 2s linear infinite;
+-webkit-animation: scroll-left 2s linear infinite;
+animation: scroll-left 12s linear infinite;
+}
+@-moz-keyframes scroll-left {
+0% {
+-moz-transform: translateX(100%);
+}
+100% {
+-moz-transform: translateX(-100%);
+}
+}
+@-webkit-keyframes scroll-left {
+0% {
+-webkit-transform: translateX(100%);
+}
+100% {
+-webkit-transform: translateX(-100%);
+}
+}
+@keyframes scroll-left {
+0% {
+-moz-transform: translateX(100%);
+-webkit-transform: translateX(100%);
+transform: translateX(100%);
+}
+100% {
+-moz-transform: translateX(-100%);
+-webkit-transform: translateX(-100%);
+transform: translateX(-100%);
+}
+}
+
+
