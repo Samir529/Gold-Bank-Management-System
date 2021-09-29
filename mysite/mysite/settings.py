@@ -11,11 +11,12 @@ https://docs.djangoproject.com/en/2.2/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TEMPLATE_DIR = os.path.join(BASE_DIR,'templates')
-STATIC_DIR = os.path.join(BASE_DIR,'static')
+STATIC_DIR = os.path.join(BASE_DIR,'goldbankapp/static')
 
 
 # Quick-start development settings - unsuitable for production
@@ -25,9 +26,9 @@ STATIC_DIR = os.path.join(BASE_DIR,'static')
 SECRET_KEY = '4jwao$sz*wg-14=&&h&q@)89oo=rcl!$q#p*xwg!y#5$*hv10j'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['goldbankbd.herokuapp.com', 'localhost', '127.0.0.1']
 
 
 # Application definition
@@ -117,7 +118,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'en-us'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Dhaka'
 
 USE_I18N = True
 
@@ -131,11 +132,18 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [STATIC_DIR,]
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 
 LOGIN_URL = '/goldbankapp/user_login'
 LOGIN_REDIRECT_URL = '/'
 
 MEDIA_ROOT =  os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
+
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
+
+
 
 

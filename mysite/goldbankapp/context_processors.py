@@ -2,7 +2,11 @@ from .models import priceOfGold
 import datetime
 
 def message_processor(request):
-    update1 = priceOfGold.objects.last()
+    update = 0
+    try:
+        update = priceOfGold.objects.last()
+    except priceOfGold.DoesNotExist:
+        pass
     currentTime = datetime.datetime.now()
     if 5 <= currentTime.hour < 12:
         temp1 = 'morning'
@@ -13,5 +17,5 @@ def message_processor(request):
     else:
         temp1 = 'night'
     return {
-        'update1': update1, 'temp1': temp1
+        'update': update, 'temp1': temp1
     }

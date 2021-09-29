@@ -40,7 +40,7 @@ class UserProfileInfo(models.Model):
     # first_name = models.CharField(max_length=30, default='')
     # last_name = models.CharField(max_length=30, default='')
     # email = models.EmailField(default='')
-    dateofbirth = models.DateField(blank=True,null=True)
+    dateofbirth = models.DateField(blank=True, null=True, default=timezone.now)
     # nid = models.IntegerField(default='0')
     currentdate = models.DateField(default=timezone.now)
     location = models.CharField(max_length=30, default='', blank=True, null=True, choices=locations)
@@ -48,6 +48,7 @@ class UserProfileInfo(models.Model):
     account_age = models.CharField(max_length=10, default='', blank=True, null=True)
     # acc_no = models.IntegerField(default='-', blank=True, null=True)
     profile_pic = models.ImageField(upload_to='profiles_pic', default='/profiles_pic/demo_profile_pic2.png', blank=True)
+    objects = models.Manager()
 
     def __str__(self):
         return str(self.user)
@@ -58,7 +59,7 @@ class deposit(models.Model):
     password = models.CharField(max_length=30, default='0')
     email = models.EmailField(default='0')
     currentdate = models.DateField(default=timezone.now)
-    withdrawdate = models.DateField(null=True, blank=True)
+    withdrawdate = models.DateField(null=True, blank=True, default=timezone.now)
     balance = models.FloatField(max_length=30, default='0')
     initial_balance = models.FloatField(max_length=30, default='0')
     last_withdraw_amount = models.FloatField(max_length=30, default='0')
@@ -67,6 +68,7 @@ class deposit(models.Model):
     interest_balance = models.FloatField(max_length=30, default='0')
     monthly_interest_balance = models.FloatField(max_length=30, default='0')
     trigger = models.CharField(max_length=30, default='0')
+    objects = models.Manager()
 
     def __str__(self):
         return self.username
@@ -76,6 +78,7 @@ class deposit_history(models.Model):
     email = models.EmailField(default='0')
     currentdate = models.DateField(default=timezone.now)
     amount = models.FloatField(max_length=30, default='0')
+    objects = models.Manager()
 
     def __str__(self):
         return self.username
@@ -85,6 +88,7 @@ class withdraw_history(models.Model):
     email = models.EmailField(default='0')
     currentdate = models.DateField(default=timezone.now)
     amount = models.FloatField(max_length=30, default='0')
+    objects = models.Manager()
 
     def __str__(self):
         return self.username
@@ -99,6 +103,7 @@ class loan(models.Model):
     return_amount = models.FloatField(max_length=30, default='0')
     bank_profit = models.FloatField(max_length=30, default='0')
     status = models.CharField(max_length=30, default='')
+    objects = models.Manager()
 
     def __str__(self):
         return self.username
@@ -108,6 +113,7 @@ class priceOfGold(models.Model):
     serial = models.CharField(max_length=10, default='0', null=True)
     date = models.DateField(default=timezone.now, blank=False)
     gold_price = models.FloatField(max_length=30,default='0.0')
+    objects = models.Manager()
 
     def __str__(self):
         return self.serial
@@ -120,6 +126,7 @@ class products(models.Model):
     quantity = models.CharField(max_length=10, default='-', blank=True, null=True)
     price = models.FloatField(max_length=30, default='0')
     coin_picture = models.ImageField(upload_to='profiles_coin', blank=True)
+    objects = models.Manager()
 
     def __str__(self):
         return self.username
@@ -127,6 +134,7 @@ class products(models.Model):
 class bankMoney(models.Model):
     serial = models.CharField(max_length=10, default='0', null=True)
     amount = models.FloatField(max_length=100, default='0', null=True)
+    objects = models.Manager()
 
 
 

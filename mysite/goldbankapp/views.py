@@ -18,8 +18,12 @@ import datetime
 
 
 def home(req):
-    update = priceOfGold.objects.last()
-    return render(req, 'home.html', {'update': update})
+    # update = 0
+    # try:
+    #     update = priceOfGold.objects.last()
+    # except priceOfGold.DoesNotExist:
+    #     pass
+    return render(req, 'home.html')
 
 
 def base(req):
