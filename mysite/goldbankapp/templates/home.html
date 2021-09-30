@@ -24,8 +24,11 @@
                 <a href="#page-top"><h1 style="text-align: left; color: gold;"><span class="highlightme" style="color: gold;">Gold Bank</span></h1></a>
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto">
+                        {% if user.is_authenticated %}
+                            <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'logout' %}" style="color: gold;">Logout</a></li>
+                        {% endif %}
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="moneytogold/" style="color: gold;">Converter</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="" style="color: gold;">Live-Update</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#" onClick="return false;" style="color: gold;">Live-Update</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team" style="color: gold;">Team</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'admin:index' %}" style="color: gold;">Admin-login</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="about/" style="color: gold;">About</a></li>
@@ -99,7 +102,8 @@ for (i = 0; i < dropdown.length; i++) {
                 </style>
                 <h1 style="text-align: center; color:gold;"><span class="highlightme" style="color: gainsboro;"> Welcome to </span><span class="highlightme" style="color: gold;">Gold</span><span class="highlightme" style="color: gainsboro;"> Bank </span></h1>
                 {% if user.is_authenticated %}
-                <a href="{% url 'logout' %}" class= "button" style="  display: block; margin: auto; width: 30%; color:black;"><span>Logout</span></a>
+                    <br>
+                    <a href="{% url 'logout' %}" class= "button" style="  display: block; margin: auto; width: 30%; color:black;"><span>Logout</span></a>
                 {% else %}
                 <br>
                 <a href="{% url 'goldbankapp:user_login' %}" class= "button" style="  display: block; margin: auto; width: 30%; color:black;"><span>Login</span></a>
