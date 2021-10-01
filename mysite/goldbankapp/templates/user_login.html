@@ -7,15 +7,22 @@
         <a href="/register/"><button class="button" style="width: 25%;  padding: 4px;"><span>Register</span></button></a></h1>
     </div>
     {% endif %}
+    {% if profile == 0 %}
+        <h2 style="color: blue;">Please sign-in first</h2>
+    {% endif %}
     <h1>Login here</h1>
     <br>
     <form action="{% url 'goldbankapp:user_login' %}" method="post">
         {% csrf_token %}
         <label for="username">Username:</label>
-        <input type="text" name="username" placeholder="enter username"/>
+        <input type="text" name="username" id="username" placeholder="enter username"/>
         <br><br>
          <label for="password">Password:</label>
-        <input type="password" name="password" placeholder="enter password"/>
+        <input type="password" name="password" id="password" placeholder="enter password"/>
+        <br><br>
+        &nbsp;&nbsp;<label>
+      <input type="checkbox" checked="checked" name="remember"> Remember me
+    </label>
         <br><br>
         <button class="button" style="float:middle;"><span>Login</span></button>
     </form>

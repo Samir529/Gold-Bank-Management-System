@@ -51,11 +51,15 @@ def admin_login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
+        remember_me = request.POST.get('remember')
 
         user = authenticate(username=username, password=password)
 
         if user:
-            if user.is_superuser:
+            if user.is_staff:
+                login(request, user)
+                if not remember_me:
+                    request.session.set_expiry(0)
                 return HttpResponseRedirect(reverse('adminPanel'))
 
             else:
@@ -105,16 +109,29 @@ def user_login(request):
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
+        remember_me = request.POST.get('remember')
 
         user = authenticate(username=username, password=password)
 
         if user:
-            if user.is_active:
-                login(request, user)
-                return HttpResponseRedirect(reverse('features'))
+            if user.is_staff == False:
+                if user.is_active:
+                    login(request, user)
+                    if not remember_me:
+                        request.session.set_expiry(0)
+                    return HttpResponseRedirect(reverse('features'))
 
-            else:
-                return HttpResponse("Account not actived.")
+                else:
+                    return HttpResponse("Account is Not Active.")
+            elif user.is_staff == True:
+                if user.is_active:
+                    isuser = 'staff_user'
+                    login(request, user)
+                    if not remember_me:
+                        request.session.set_expiry(0)
+                    return HttpResponseRedirect(reverse('adminPanel'))
+                else:
+                    return HttpResponse("Account is Not Active.")
         else:
             isuser = 'b'
             return render(request, 'user_login.html',{'isuser': isuser})
@@ -923,4 +940,25 @@ def transfer_gold(request):
             temp = 'e'
 
     return render(request, 'transferGold.html', {'temp': temp})
+
+
+def myPanel(request):
+    profile = 0
+    if request.user.is_authenticated:
+        if request.user.is_staff:
+            return HttpResponseRedirect(reverse('adminPanel'))
+        else:
+            return HttpResponseRedirect(reverse('features'))
+    else:
+        return render(request, 'user_login.html', {'profile': profile})
+
+
+
+
+
+
+
+
+
+
 

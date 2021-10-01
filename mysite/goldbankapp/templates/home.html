@@ -21,7 +21,7 @@
     </div>
   </div>
 </div>
-                <a href="#page-top"><h1 style="text-align: left; color: gold;"><span class="highlightme" style="color: gold;">Gold Bank</span></h1></a>
+                <a href="#page-top"><h1 style="text-align: left; color: gold;"><span class="highlightme" style="color: gold;">&nbsp;Gold Bank&nbsp;</span></h1></a>
                 <div class="collapse navbar-collapse">
                     <ul class="navbar-nav ml-auto">
                         {% if user.is_authenticated %}
@@ -30,7 +30,7 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="moneytogold/" style="color: gold;">Converter</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#" onClick="return false;" style="color: gold;">Live-Update</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#team" style="color: gold;">Team</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'admin:index' %}" style="color: gold;">Admin-login</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="{% url 'admin:index' %}" style="color: gold;">Admin-site</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="about/" style="color: gold;">About</a></li>
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -39,12 +39,16 @@
     </div>
 <div id="mySidenav" class="sidenav">
     <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    {% if user.is_authenticated %}
+        <a href="{% url 'logout' %}">Logout</a>
+    {% endif %}
     <a href="/">Home</a>
     <a href="moneytogold/">Convert Money to Gold</a>
     <a href="show_gold_price/">Gold Price History</a>
     <a href="buy_product/">Buy Our Products</a>
-    <a href="features/">Services(Shortcut)</a>
-    <a href="adminPanel/">Admin Panel(Shortcut)</a>
+    <a href="#" onClick="return false;">Contact</a>
+<!--    <a href="features/">Services(Shortcut)</a>-->
+<!--    <a href="adminPanel/">Admin Panel(Shortcut)</a>-->
 </div>
 <script>
 function openNav() {
@@ -83,7 +87,7 @@ for (i = 0; i < dropdown.length; i++) {
                 <br>
 <!--                        <form action="/action_page.php">-->
                 <div class="marquee" style="white-space:nowrap; width: 240px; float: middle;">
-                 <h3><z>Lastest Gold Price Update : Per One Gram Gold Price is <a style="color: orange">{{update.gold_price}} BDT</a> updated on {{update.date}}</z></h3>
+                 <h3><z>Lastest Gold Price Update: Per One Gram Gold Price is <a style="color: orange">{{update.gold_price}} BDT</a> Updated on {{update.date}}</z></h3>
              </div>
                 <div style="color:gainsboro;">
                     <h3>Like Our Facebook Page <a class="btn btn-dark btn-social mx-2" href="https://web.facebook.com/Gold-Bank-103736558274705">
@@ -100,7 +104,7 @@ for (i = 0; i < dropdown.length; i++) {
                 .highlightme { background-color:rgba(0,0,0,.7); }
                 p { background-color:#FFFFFF; }
                 </style>
-                <h1 style="text-align: center; color:gold;"><span class="highlightme" style="color: gainsboro;"> Welcome to </span><span class="highlightme" style="color: gold;">Gold</span><span class="highlightme" style="color: gainsboro;"> Bank </span></h1>
+                <h1 style="text-align: center; color:gold;"><span class="highlightme" style="color: gainsboro; border-radius: 1px 1px 1px 1px;">&nbsp;Welcome to </span><span class="highlightme" style="color: gold;">Gold</span><span class="highlightme" style="color: gainsboro;"> Bank&nbsp;</span></h1>
                 {% if user.is_authenticated %}
                     <br>
                     <a href="{% url 'logout' %}" class= "button" style="  display: block; margin: auto; width: 30%; color:black;"><span>Logout</span></a>
@@ -109,9 +113,11 @@ for (i = 0; i < dropdown.length; i++) {
                 <a href="{% url 'goldbankapp:user_login' %}" class= "button" style="  display: block; margin: auto; width: 30%; color:black;"><span>Login</span></a>
                 {% endif %}
                 <br>
-                <a href="{% url 'goldbankapp:register' %}" class = "button" style="  display: block; margin: auto; width: 30%; color:black;"><span>Register (Create account)</span></a>
+                <a href="{% url 'goldbankapp:register' %}" class = "button" style="  display: block; margin: auto; width: 30%; color:black;"><span>Register (create account)</span></a>
                 <br>
-                <a href="admin_login/" class = "button" style="  display: block; margin: auto; width: 30%; color:black;"><span>Admin Panel</span></a>
+                <a href="admin_login/" class = "button" style="  display: block; margin: auto; width: 30%; color:black;"><span>Admin Login</span></a>
+                <br>
+                <a href="myPanel/" class = "button" style="  display: block; margin: auto; width: 30%; color:black;"><span>My Panel</span></a>
                 {% endblock %}
             </div>
         </header>
@@ -134,31 +140,49 @@ for (i = 0; i < dropdown.length; i++) {
                     <div class="col-lg-4">
                         <div class="team-member">
                             <img class="mx-auto rounded-circle img11" src="static/assets/img/team/1.jpg" alt="" />
-                            <h4><span class="highlightme" style="color: dodgerblue;">Md. Ashikur Rahman</span></h4>
-                            <p class="text-muted">Student</p>
+                            <h4><span class="highlightme" style="color: dodgerblue; border-radius: 1.5px 1.5px 1.5px 1.5px;">&nbsp;Md. Ashikur Rahman&nbsp;</span></h4>
+                            <div class="card" style="background-color: whitesmoke; border-radius: 5px 5px 5px 5px;">
+                                <p class="text-muted" style="background-color: whitesmoke; border-radius: 5px 5px 0px 0px; padding-top: 5px;">Student</p>
+                                <p class="text-muted" style="background-color: whitesmoke;">Computer Science & Engineering Department</p>
+                                <p class="text-muted" style="background-color: whitesmoke;">East West University</p>
+                                <p class="text-muted" style="background-color: whitesmoke; border-radius: 0px 0px 5px 5px; padding-bottom: 10px;">ashikur16jan@gmail.com</p>
+                            </div>
                             <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/ashikur16jan"><i class="fab fa-facebook-messenger"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/ashikur16jan"><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="https://www.whatsapp.com/?lang=en"><i class="fab fa-whatsapp"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/md-ashikur-rahman-008196215/"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="team-member">
                             <img class="mx-auto rounded-circle img11" src="static/assets/img/team/2.jpeg" alt="" />
-                            <h4><span class="highlightme" style="color: dodgerblue;">Samir Asif</span></h4>
-                            <p class="text-muted">Student</p>
-                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/asif.samir.5329"><i class="fab fa-facebook-messenger"></i></a>
-                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/asif.samir.5329"><i class="fab fa-facebook-f"></i></a>
+                            <h4><span class="highlightme" style="color: dodgerblue; border-radius: 1.5px 1.5px 1.5px 1.5px;">&nbsp;Samir Asif&nbsp;</span></h4>
+                            <div class="card" style="background-color: whitesmoke; border-radius: 5px 5px 5px 5px;">
+                                <p class="text-muted" style="background-color: whitesmoke; border-radius: 5px 5px 0px 0px; padding-top: 5px;">Student</p>
+                                <p class="text-muted" style="background-color: whitesmoke;">Computer Science & Engineering Department</p>
+                                <p class="text-muted" style="background-color: whitesmoke;">East West University</p>
+                                <p class="text-muted" style="background-color: whitesmoke; border-radius: 0px 0px 5px 5px; padding-bottom: 10px;">samirasif116@gmail.com</p>
+                            </div>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/samir.asif.529"><i class="fab fa-facebook-messenger"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/samir.asif.529"><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="https://www.whatsapp.com/?lang=en"><i class="fab fa-whatsapp"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="https://www.linkedin.com/in/samir-asif-715ab51b8/"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                     <div class="col-lg-4">
                         <div class="team-member">
                             <img class="mx-auto rounded-circle img11" src="static/assets/img/team/3.jpg" alt="" />
-                            <h4><span class="highlightme" style="color: dodgerblue;">Saimun Rahman Sizan</span></h4>
-                            <p class="text-muted">Student</p>
+                            <h4><span class="highlightme" style="color: dodgerblue; border-radius: 1.5px 1.5px 1.5px 1.5px;">&nbsp;Saimun Rahman Sizan&nbsp;</span></h4>
+                            <div class="card" style="background-color: whitesmoke; border-radius: 5px 5px 5px 5px;">
+                                <p class="text-muted" style="background-color: whitesmoke; border-radius: 5px 5px 0px 0px; padding-top: 5px;">Student</p>
+                                <p class="text-muted" style="background-color: whitesmoke;">Computer Science & Engineering Department</p>
+                                <p class="text-muted" style="background-color: whitesmoke;">East West University</p>
+                                <p class="text-muted" style="background-color: whitesmoke; border-radius: 0px 0px 5px 5px; padding-bottom: 10px;">sizan@gmail.com</p>
+                            </div>
                             <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/SizanSiz"><i class="fab fa-facebook-messenger"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="https://www.facebook.com/SizanSiz"><i class="fab fa-facebook-f"></i></a>
                             <a class="btn btn-dark btn-social mx-2" href="https://www.whatsapp.com/?lang=en"><i class="fab fa-whatsapp"></i></a>
+                            <a class="btn btn-dark btn-social mx-2" href="#" onClick="return false;"><i class="fab fa-linkedin"></i></a>
                         </div>
                     </div>
                 </div>

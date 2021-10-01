@@ -55,7 +55,8 @@ urlpatterns = [
         path('buy_product/',views.product,name='product'),
         path('buy_gold/',views.buy_gold,name='buy_gold'),
         path('buy_silver/',views.buy_silver,name='buy_silver'),
-        path('buy_bronze/',views.buy_bronze,name='buy_bronze')
+        path('buy_bronze/',views.buy_bronze,name='buy_bronze'),
+        path('myPanel/',views.myPanel, name='myPanel')
 
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
