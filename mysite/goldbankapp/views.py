@@ -168,7 +168,7 @@ def updatePrice(request):
         if updatePrice_form.is_valid():
             profile = updatePrice_form.save(commit=False)
             profile.save()
-            messages.info(request, 'Price Updated Successfully :)')
+            messages.info(request, 'Price is Updated Successfully :)')
 
         else:
             print(updatePrice_form.errors)
